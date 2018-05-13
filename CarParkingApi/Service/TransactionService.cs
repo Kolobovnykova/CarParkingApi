@@ -23,5 +23,20 @@ namespace CarParkingApi.Service
             var logFile = FileHelper.ReadLogFile();
             return logFile;
         }
+
+        public double GetParkingIncomeForPastMinute()
+        {
+            return parking.GetParkingIncomeForPastMinute();
+        }
+
+        public double GetParkingIncomeForPastMinute(int id)
+        {
+            return parking.GetParkingIncomeForPastMinute(id);
+        }
+
+        public void ReplenishAccountById(int id, double amount)
+        {
+            parking.ReplenishCarBalance(id, amount);
+        }
     }
 }
