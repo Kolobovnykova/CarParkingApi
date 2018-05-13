@@ -45,5 +45,18 @@ namespace CarParkingApi.Controllers
                 return StatusCode(400);
             }
         }
+
+        [HttpGet("Balance")]
+        public IActionResult GetParkingBalance()
+        {
+            try
+            {
+                return Json(parkingService.GetParkingBalance());
+            }
+            catch (Exception)
+            {
+                return StatusCode(400);
+            }
+        }
     }
 }

@@ -24,5 +24,10 @@ namespace CarParkingApi.Service
         {
             return parking.GetTakenSpacesNumber();
         }
+
+        public double GetParkingBalance()
+        {
+            return parking.GetParkingBalance();
+        }
     }
 }
