@@ -86,6 +86,11 @@ namespace CarParking.Entities
             }
         }
 
+        public Car GetCarById(int carId)
+        {
+            return Cars.FirstOrDefault(x => x.Id == carId);
+        }
+
         public int GetFreeSpacesNumber()
         {
             return Settings.ParkingSpace - Cars.Count;
