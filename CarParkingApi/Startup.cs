@@ -27,6 +27,7 @@ namespace CarParkingApi
             services.AddMvc();
 
             services.AddScoped<CarService>();
+            services.AddScoped<TransactionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
