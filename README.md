@@ -6,7 +6,7 @@ Application emulating car parking with API service
 ### Cars
 - Список всіх машин (GET)
 
-GET /api/Cars
+_GET /api/Cars_
 
 - Деталі по одній машині (GET)
 
