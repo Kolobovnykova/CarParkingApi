@@ -4,51 +4,59 @@ Application emulating car parking with API service
 ## REST API
 
 ### Cars
-- Список всіх машин (GET)
+- Список всех машин (GET)
 
 _GET /api/Cars_
 
-- Деталі по одній машині (GET)
+- Детали по одной машине (GET)
 
 _GET /api/Cars/1_
 
-- Видалити машину (DELETE)
+- Удалить машину (DELETE)
 
 _DELETE /api/Cars/1_
 
-- Додати машину (POST)
+- Добавить машину (POST)
 
 _POST /api/Cars_
 
 
 ### Parking
-- Кількість вільних місць (GET)
+- Количество свободных мест (GET)
 
 _GET /api/Parking/freespaces_
 
-- Кількість зайнятих місць (GET)
+- Количество занятых мест (GET)
 
 _GET /api/Parking/takenspaces_
 
-- Загальний дохід (GET)
+- Общий доход (GET)
 
 _GET /api/Parking/balance_
 
 
 ### Transactions
-- Вивести Transactions.log (GET)
+- Вывести Transactions.log (GET)
 
 _GET /api/Transactions_
 
-- Вивести транзакції за останню хвилину (GET)
+- Вывести транзакции за последнюю минуту (GET)
+
+_GET /api/Transactions/pastminute_
+
+- Вывести транзакции за последнюю минуту по одной конкретной машине (GET)
+
+_GET /api/Transactions/pastminute/1_
+
+- Вывести доход за последнюю минуту (GET)
 
 _GET /api/Transactions/income_
 
-- Вивести транзакції за останню хвилину по одній конкретній машині (GET)
+- Вывести доход за последнюю минуту по одной конкретной машине (GET)
 
 _GET /api/Transactions/income/1_
 
-- Поповнити баланс машини (PUT)
+- Пополнить баланс машини (PUT)
 
 _PUT /api/Transactions/replenish/1_
 
