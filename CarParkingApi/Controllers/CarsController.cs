@@ -36,7 +36,6 @@ namespace CarParkingApi.Controllers
         }
 
         // GET: api/Cars/5
-
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
         {

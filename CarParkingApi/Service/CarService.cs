@@ -11,7 +11,7 @@ namespace CarParkingApi.Service
 {
     public class CarService
     {
-        private Parking parking;
+        private readonly Parking parking;
 
         public CarService()
         {

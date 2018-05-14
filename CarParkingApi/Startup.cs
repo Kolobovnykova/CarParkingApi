@@ -27,6 +27,7 @@ namespace CarParkingApi
             services.AddMvc();
 
             services.AddScoped<CarService>();
+            services.AddScoped<ParkingService>();
             services.AddScoped<TransactionService>();
         }
 
