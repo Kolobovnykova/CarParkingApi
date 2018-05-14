@@ -24,9 +24,9 @@ namespace CarParkingApi.Controllers
             {
                 return transactionService.GetLogFile();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400).ToString();
+                return BadRequest(e.Message).ToString();
             }
         }
 
@@ -38,9 +38,9 @@ namespace CarParkingApi.Controllers
             {
                 return Json(transactionService.GetParkingIncomeForPastMinute());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
@@ -52,24 +52,52 @@ namespace CarParkingApi.Controllers
             {
                 return Json(transactionService.GetParkingIncomeForPastMinute(id));
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
+            }
+        }
+
+        // GET: api/Transactions/pastminute
+        [HttpGet("pastminute")]
+        public IActionResult GetTransactionsForPastMinute()
+        {
+            try
+            {
+                return Json(transactionService.GetParkingTransactionsForPastMinute());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        // GET: api/Transactions/pastminute/5
+        [HttpGet("pastminute/{id}")]
+        public IActionResult GetTransactionsForPastMinute(int id)
+        {
+            try
+            {
+                return Json(transactionService.GetParkingTransactionsForPastMinute(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
             }
         }
 
         // PUT: api/Transactions/replenish/5
         [HttpPut("replenish/{id}")]
-        public IActionResult ReplenishAccount(int id, [FromBody]AmountBuilder c)
+        public IActionResult ReplenishAccount(int id, [FromBody] AmountBuilder c)
         {
             try
             {
                 transactionService.ReplenishAccountById(id, c.Amount);
                 return StatusCode(200);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
     }
