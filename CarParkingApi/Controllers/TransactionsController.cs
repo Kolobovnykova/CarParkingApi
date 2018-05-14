@@ -18,15 +18,15 @@ namespace CarParkingApi.Controllers
 
         // GET: api/Transactions
         [HttpGet]
-        public string Get()
+        public IActionResult Get()
         {
             try
             {
-                return transactionService.GetLogFile();
+                return Json(transactionService.GetLogFile());
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message).ToString();
+                return BadRequest(e.Message);
             }
         }
 
