@@ -150,6 +150,14 @@ namespace CarParking.Entities
             return income;
         }
 
+        public double GetParkingIncomeForPastMinute(int carId)
+        {
+            var income = Transactions.Where(t => t.TransactionTime > DateTime.Now.AddMinutes(-1))
+                .Where(t => t.CarId == carId)
+                .Sum(s => s.Withdrawal);
+            return income;
+        }
+
         private async void PaymentAction(object o)
         {
             await Task.Run(() =>
