@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using CarParking.Entities;
 using CarParking.Helpers;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CarParkingApi.Service
 {
@@ -37,6 +33,16 @@ namespace CarParkingApi.Service
         public void ReplenishAccountById(int id, double amount)
         {
             parking.ReplenishCarBalance(id, amount);
+        }
+
+        public IList<Transaction> GetParkingTransactionsForPastMinute()
+        {
+            return parking.GetTransactionsForPastMinute();
+        }
+
+        public IList<Transaction> GetParkingTransactionsForPastMinute(int id)
+        {
+            return parking.GetTransactionsForPastMinute(id);
         }
     }
 }

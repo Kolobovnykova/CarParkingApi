@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CarParkingApi.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarParkingApi.Controllers
@@ -19,43 +15,45 @@ namespace CarParkingApi.Controllers
             this.parkingService = parkingService;
         }
 
-        [HttpGet("FreeSpaces")]
+        // GET: api/Parking/freeSpaces
+        [HttpGet("freeSpaces")]
         public IActionResult GetFreeSpaces()
         {
             try
             {
                 return Json(parkingService.GetFreeSpaces());
-
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
-        [HttpGet("TakenSpaces")]
+        // GET: api/Parking/takenspaces
+        [HttpGet("takenSpaces")]
         public IActionResult GetTakenSpaces()
         {
             try
             {
                 return Json(parkingService.GetTakenSpaces());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
-        [HttpGet("Balance")]
+        // GET: api/Parking/balance
+        [HttpGet("balance")]
         public IActionResult GetParkingBalance()
         {
             try
             {
                 return Json(parkingService.GetParkingBalance());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
     }

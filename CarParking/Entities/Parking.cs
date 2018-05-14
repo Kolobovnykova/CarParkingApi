@@ -158,6 +158,21 @@ namespace CarParking.Entities
             return income;
         }
 
+        public IList<Transaction> GetTransactionsForPastMinute()
+        {
+            var transactions = Transactions.Where(t => t.TransactionTime > DateTime.Now.AddMinutes(-1))
+                .ToList();
+            return transactions;
+        }
+
+        public IList<Transaction> GetTransactionsForPastMinute(int carId)
+        {
+            var transactions = Transactions.Where(t => t.TransactionTime > DateTime.Now.AddMinutes(-1))
+                .Where(t => t.CarId == carId)
+                .ToList();
+            return transactions;
+        }
+
         private async void PaymentAction(object o)
         {
             await Task.Run(() =>

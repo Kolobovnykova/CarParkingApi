@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using CarParking.Entities;
 using CarParkingApi.Models;
 using CarParkingApi.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarParkingApi.Controllers
@@ -21,6 +15,7 @@ namespace CarParkingApi.Controllers
         {
             this.carService = carService;
         }
+
         // GET: api/Cars
         [HttpGet]
         public IActionResult Get()
@@ -29,9 +24,9 @@ namespace CarParkingApi.Controllers
             {
                 return Json(carService.GetCars());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
@@ -51,38 +46,31 @@ namespace CarParkingApi.Controllers
 
         // POST: api/Cars
         [HttpPost]
-        public StatusCodeResult Post([FromBody]CarBuilder value)
+        public IActionResult Post([FromBody] CarBuilder value)
         {
             try
             {
                 carService.AddCar(value);
                 return StatusCode(201);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
-        // PUT: api/Cars/5
-        [HttpPut("{id}")]
-        public StatusCodeResult Put(int id, [FromBody]string value)
-        {
-            return StatusCode(400);
-        }
-
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/Cars/5
         [HttpDelete("{id}")]
-        public StatusCodeResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             try
             {
                 carService.RemoveCar(id);
                 return StatusCode(200);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
     }
