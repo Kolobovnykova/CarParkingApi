@@ -58,9 +58,37 @@ namespace CarParkingApi.Controllers
             }
         }
 
+        // GET: api/Transactions/pastminute
+        [HttpGet("pastminute")]
+        public IActionResult GetTransactionsForPastMinute()
+        {
+            try
+            {
+                return Json(transactionService.GetParkingTransactionsForPastMinute());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        // GET: api/Transactions/pastminute/5
+        [HttpGet("pastminute/{id}")]
+        public IActionResult GetTransactionsForPastMinute(int id)
+        {
+            try
+            {
+                return Json(transactionService.GetParkingTransactionsForPastMinute(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         // PUT: api/Transactions/replenish/5
         [HttpPut("replenish/{id}")]
-        public IActionResult ReplenishAccount(int id, [FromBody]AmountBuilder c)
+        public IActionResult ReplenishAccount(int id, [FromBody] AmountBuilder c)
         {
             try
             {
