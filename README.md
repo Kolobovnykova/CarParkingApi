@@ -40,23 +40,23 @@ _GET /api/Parking/balance_
 
 _GET /api/Transactions_
 
-- Display transactions for the past minute (GET)
+- Transactions for the past minute (GET)
 
 _GET /api/Transactions/pastminute_
 
-- Display transactions for the past minute for a concrete car (GET)
+- Transactions for the past minute for a concrete car (GET)
 
 _GET /api/Transactions/pastminute/1_
 
-- Get income for the past minute (GET)
+- Income for the past minute (GET)
 
 _GET /api/Transactions/income_
 
-- Get income for the past minute for a concrete car (GET)
+- Income for the past minute for a concrete car (GET)
 
 _GET /api/Transactions/income/1_
 
-- replenish car balance (PUT)
+- Replenish car balance (PUT)
 
 _PUT /api/Transactions/replenish/1_
 
