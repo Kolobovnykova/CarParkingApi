@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 using CarParking.Entities;
 using CarParkingApi.Models;
-using Newtonsoft.Json;
 
 namespace CarParkingApi.Service
 {
@@ -30,7 +26,7 @@ namespace CarParkingApi.Service
 
         public void AddCar(CarBuilder value)
         {
-            CarType type = (CarType)Enum.ToObject(typeof(CarType), value.Type);
+            CarType type = (CarType) Enum.ToObject(typeof(CarType), value.Type);
             parking.AddCar(type, value.Balance);
         }
 

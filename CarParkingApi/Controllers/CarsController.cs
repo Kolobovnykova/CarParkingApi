@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using CarParking.Entities;
 using CarParkingApi.Models;
 using CarParkingApi.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarParkingApi.Controllers
@@ -21,6 +15,7 @@ namespace CarParkingApi.Controllers
         {
             this.carService = carService;
         }
+
         // GET: api/Cars
         [HttpGet]
         public IActionResult Get()
@@ -51,7 +46,7 @@ namespace CarParkingApi.Controllers
 
         // POST: api/Cars
         [HttpPost]
-        public StatusCodeResult Post([FromBody]CarBuilder value)
+        public StatusCodeResult Post([FromBody] CarBuilder value)
         {
             try
             {
@@ -64,14 +59,7 @@ namespace CarParkingApi.Controllers
             }
         }
 
-        // PUT: api/Cars/5
-        [HttpPut("{id}")]
-        public StatusCodeResult Put(int id, [FromBody]string value)
-        {
-            return StatusCode(400);
-        }
-
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/Cars/5
         [HttpDelete("{id}")]
         public StatusCodeResult Delete(int id)
         {

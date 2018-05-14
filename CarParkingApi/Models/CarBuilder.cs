@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CarParking.Entities;
-
-namespace CarParkingApi.Models
+﻿namespace CarParkingApi.Models
 {
     public class CarBuilder
     {

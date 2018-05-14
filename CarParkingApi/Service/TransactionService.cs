@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using CarParking.Entities;
+﻿using CarParking.Entities;
 using CarParking.Helpers;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CarParkingApi.Service
 {
