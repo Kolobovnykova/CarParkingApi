@@ -24,9 +24,9 @@ namespace CarParkingApi.Controllers
             {
                 return transactionService.GetLogFile();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400).ToString();
+                return BadRequest(e.Message).ToString();
             }
         }
 
@@ -38,9 +38,9 @@ namespace CarParkingApi.Controllers
             {
                 return Json(transactionService.GetParkingIncomeForPastMinute());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
@@ -52,9 +52,9 @@ namespace CarParkingApi.Controllers
             {
                 return Json(transactionService.GetParkingIncomeForPastMinute(id));
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
@@ -67,9 +67,9 @@ namespace CarParkingApi.Controllers
                 transactionService.ReplenishAccountById(id, c.Amount);
                 return StatusCode(200);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
     }

@@ -24,9 +24,9 @@ namespace CarParkingApi.Controllers
             {
                 return Json(carService.GetCars());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
@@ -46,31 +46,31 @@ namespace CarParkingApi.Controllers
 
         // POST: api/Cars
         [HttpPost]
-        public StatusCodeResult Post([FromBody] CarBuilder value)
+        public IActionResult Post([FromBody] CarBuilder value)
         {
             try
             {
                 carService.AddCar(value);
                 return StatusCode(201);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
         // DELETE: api/Cars/5
         [HttpDelete("{id}")]
-        public StatusCodeResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             try
             {
                 carService.RemoveCar(id);
                 return StatusCode(200);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
     }

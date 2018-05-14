@@ -23,9 +23,9 @@ namespace CarParkingApi.Controllers
             {
                 return Json(parkingService.GetFreeSpaces());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
@@ -37,9 +37,9 @@ namespace CarParkingApi.Controllers
             {
                 return Json(parkingService.GetTakenSpaces());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
 
@@ -51,9 +51,9 @@ namespace CarParkingApi.Controllers
             {
                 return Json(parkingService.GetParkingBalance());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(400);
+                return BadRequest(e.Message);
             }
         }
     }
