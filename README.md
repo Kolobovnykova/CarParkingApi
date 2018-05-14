@@ -10,45 +10,45 @@ _GET /api/Cars_
 
 - Деталі по одній машині (GET)
 
-GET /api/Cars/1
+_GET /api/Cars/1_
 
 - Видалити машину (DELETE)
 
-DELETE /api/Cars/1
+_DELETE /api/Cars/1_
 
 - Додати машину (POST)
 
-POST /api/Cars
+_POST /api/Cars_
 
 
 ### Parking
 - Кількість вільних місць (GET)
 
-GET /api/Parking/freespaces
+_GET /api/Parking/freespaces_
 
 - Кількість зайнятих місць (GET)
 
-GET /api/Parking/takenspaces
+_GET /api/Parking/takenspaces_
 
 - Загальний дохід (GET)
 
-GET /api/Parking/balance
+_GET /api/Parking/balance_
 
 
 ### Transactions
 - Вивести Transactions.log (GET)
 
-GET /api/Transactions
+_GET /api/Transactions_
 
 - Вивести транзакції за останню хвилину (GET)
 
-GET /api/Transactions/income
+_GET /api/Transactions/income_
 
 - Вивести транзакції за останню хвилину по одній конкретній машині (GET)
 
-GET /api/Transactions/income/1
+_GET /api/Transactions/income/1_
 
 - Поповнити баланс машини (PUT)
 
-PUT /api/Transactions/replenish/1
+_PUT /api/Transactions/replenish/1_
 
